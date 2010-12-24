@@ -28,7 +28,7 @@ like(fascist_check('abcdef'), qr/simplistic/, "simplistic");
 like(fascist_check('dictionary'), qr/dictionary/, "dictionary");
 
 # it is based on a (reversed) dictionary word
-like(fascist_check('yranoitcid'), qr/reversed/, "reversed dictionary");
+like(fascist_check('yranoitcid'), qr/dictionary/, "reversed dictionary");
 
 # Ok
 ok(fascist_check('Sil1ntBob') eq 'ok');
