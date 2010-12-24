@@ -1,4 +1,4 @@
-use Test::More tests => 19;
+use Test::More tests => 22;
 
 BEGIN { use_ok( 'Crypt::Cracklib' ); }
 
@@ -43,3 +43,7 @@ ok(check('N3veRGs$'));
 ok(!check('blather'));
 ok(!check('begin'));
 ok(check('Neg@torY'));
+
+ok(bad_pass('bad'));
+ok(bad_pass('') eq 'Password is all whitespace');
+ok(bad_pass('Neg@torY') eq '');

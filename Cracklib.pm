@@ -10,7 +10,7 @@ require DynaLoader;
 
 $VERSION = '1.5';
 @ISA = qw(Exporter DynaLoader);
-@EXPORT = qw(fascist_check check);
+@EXPORT = qw(fascist_check check bad_pass);
 
 $DEFAULT_DICT = "";
 
@@ -46,6 +46,12 @@ sub fascist_check {
 	}
 
 	return $ret;
+}
+
+sub bad_pass {
+	my ($password, $dict) = @_;
+	return 'Password is all whitespace' if $password =~ /^\s*$/;
+	return _FascistCheck($password, ($dict || $DEFAULT_DICT)) || '';
 }
 
 # Wrapper wrapper.
@@ -86,6 +92,10 @@ This is a simple interface to the cracklib library.
 =item * fascist_check( $password, [ $dictionary ] )
 
 Returns a string value. Either an error, or "ok".
+
+=item * bad_pass( $password, [ $dictionary ] )
+
+Returns a non-empty string on success or an empty string on failure.
 
 =item * check( $password, [ $dictionary ] )
 
