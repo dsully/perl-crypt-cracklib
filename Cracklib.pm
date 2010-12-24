@@ -6,7 +6,7 @@ use vars qw($VERSION @ISA @EXPORT $AUTOLOAD $DEFAULT_DICT);
 require Exporter;
 require DynaLoader;
 
-$VERSION = '1.5';
+$VERSION = '1.6';
 @ISA = qw(Exporter DynaLoader);
 @EXPORT = qw(fascist_check check bad_pass);
 
