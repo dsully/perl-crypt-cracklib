@@ -1,7 +1,5 @@
 package Crypt::Cracklib;
 
-# $Id: Cracklib.pm 9 2008-11-08 23:18:56Z dsully $
-
 use strict;
 use vars qw($VERSION @ISA @EXPORT $AUTOLOAD $DEFAULT_DICT);
 
@@ -15,51 +13,51 @@ $VERSION = '1.5';
 $DEFAULT_DICT = "";
 
 {
-	for my $path (qw(
-		/usr/share/pw_dict
-		/var/cache/cracklib/cracklib_dict
-		/usr/lib/cracklib_dict
-		/usr/lib64/cracklib_dict
-		/usr/share/dict/cracklib_words)) {
+  for my $path (qw(
+    /usr/share/pw_dict
+    /var/cache/cracklib/cracklib_dict
+    /usr/lib/cracklib_dict
+    /usr/lib64/cracklib_dict
+    /usr/share/dict/cracklib_words)) {
 
-		if (-f "$path.pwd") {
+    if (-f "$path.pwd") {
 
-			$DEFAULT_DICT = $path;
-			last;
-		}
-	}
+      $DEFAULT_DICT = $path;
+      last;
+    }
+  }
 }
 
 # Wrapper.
 sub fascist_check {
-	my ($password, $dict) = @_;
+  my ($password, $dict) = @_;
 
-	if ($password =~ /^\s*$/) {
-		return "Nothing to do: \$password is all whitespace!";
-	}
+  if ($password =~ /^\s*$/) {
+    return "Nothing to do: \$password is all whitespace!";
+  }
 
-	my $ret = _FascistCheck($password, ($dict || $DEFAULT_DICT));
+  my $ret = _FascistCheck($password, ($dict || $DEFAULT_DICT));
 
-	if (!defined $ret or $ret =~ /^\s*$/) {
+  if (!defined $ret or $ret =~ /^\s*$/) {
 
-		$ret = 'ok';
-	}
+    $ret = 'ok';
+  }
 
-	return $ret;
+  return $ret;
 }
 
 sub bad_pass {
-	my ($password, $dict) = @_;
-	return 'Password is all whitespace' if $password =~ /^\s*$/;
-	return _FascistCheck($password, ($dict || $DEFAULT_DICT)) || '';
+  my ($password, $dict) = @_;
+  return 'Password is all whitespace' if $password =~ /^\s*$/;
+  return _FascistCheck($password, ($dict || $DEFAULT_DICT)) || '';
 }
 
 # Wrapper wrapper.
 sub check {
-	my $ret = fascist_check(@_);
+  my $ret = fascist_check(@_);
 
-	return 1 if $ret eq 'ok';
-	return 0;
+  return 1 if $ret eq 'ok';
+  return 0;
 }
 
 bootstrap Crypt::Cracklib $VERSION;
@@ -75,7 +73,7 @@ Crypt::Cracklib - Perl interface to Alec Muffett's Cracklib.
 =head1 SYNOPSIS
 
   use Crypt::Cracklib;
-  
+
   my $reason = fascist_check($password, $dictionary);
 
   print "Ok"  if  check($password, $dictionary);
