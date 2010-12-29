@@ -6,7 +6,7 @@ use vars qw($VERSION @ISA @EXPORT $AUTOLOAD $DEFAULT_DICT);
 require Exporter;
 require DynaLoader;
 
-$VERSION = '1.6';
+$VERSION = '1.7';
 @ISA = qw(Exporter DynaLoader);
 @EXPORT = qw(fascist_check check bad_pass);
 
@@ -104,6 +104,10 @@ Returns a true or false value if the password is acceptable or not.
 =head1 AUTHOR
 
 Dan Sully <daniel@cpan.org>
+
+=head1 BUGS
+
+Please file bugs at https://github.com/dsully/perl-crypt-cracklib/issues
 
 =head1 SEE ALSO
 

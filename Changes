@@ -1,6 +1,9 @@
 Revision history for Perl extension Crypt::Cracklib.
 
-1.6   Tue Jul 20 14:00:16 PDT 2010
+1.7   Wed Dec 29 15:28:52 PST 2010
+	- Update home page & bug tracker.
+
+1.6   Fri Dec 24 2010
 	- Add bad_pass() wrapper. RT #62270
 	- Fix for RT #36163 - use eval for Test::Pod::Coverage
 
