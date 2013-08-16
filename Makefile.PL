@@ -6,6 +6,7 @@ perl_version('5.005');
 all_from('Cracklib.pm');
 
 homepage 'https://github.com/dsully/perl-crypt-cracklib';
+repository 'https://github.com/dsully/perl-crypt-cracklib';
 bugtracker 'https://github.com/dsully/perl-crypt-cracklib/issues';
 
 test_requires 'Test::Pod::Coverage' => '1.08';
