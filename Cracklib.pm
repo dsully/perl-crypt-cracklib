@@ -14,6 +14,7 @@ $DEFAULT_DICT = "";
 
 {
   for my $path (qw(
+    /usr/share/cracklib/pw_dict
     /usr/share/pw_dict
     /var/cache/cracklib/cracklib_dict
     /usr/lib/cracklib_dict
